@@ -10,7 +10,7 @@ import UIKit
 public final class QuestionView : UIView {
     public var userAnswers : [String] = []
     
-    private var answer = UITextView()
+    public var answer = UITextView()
     private var question = UIView()
     private var button = UIButton(type: .system)
     
@@ -45,6 +45,7 @@ public final class QuestionView : UIView {
             layer.insertSublayer(gradientLayer, at:0)
         }
         
+        addSubview(answer)
         configureQuestionView(model: model.questionViewModels[0])
         configureAnswerView(model: model.answerViewModels[0])
         configureButton(model: model.buttonModels[0])
@@ -90,7 +91,6 @@ public final class QuestionView : UIView {
     }
     
     private func configureAnswerView(model: QuestionModel.AnswerTextViewModel) {
-        addSubview(answer)
         answer.pinTop(to: question.bottomAnchor, model.viewModel.topIndent)
         
         configureView(model: model.viewModel, view: answer)
@@ -99,8 +99,6 @@ public final class QuestionView : UIView {
             guard let insets = model.textContainerInset else { return }
             answer.textContainerInset = insets
         }
-        
-        answer.inputView = model.inputView
     }
     
     private func configureButton(model: QuestionModel.NextButtonModel) {
@@ -132,11 +130,9 @@ public final class QuestionView : UIView {
             questionsEnded = true
         } else {
             question = UIView()
-            answer = UITextView()
             button = UIButton(type: .system)
             
             question.removeFromSuperview()
-            answer.removeFromSuperview()
             button.removeFromSuperview()
             
             configureNewQuestion()
