@@ -58,8 +58,6 @@ public struct QuestionModel {
         public var imageHeight: Double?
         public var imageWidth: Double?
         
-        public var inputView: UIView?
-        
         public init(
             cornerRadius: CGFloat? = nil,
             borderWidth: CGFloat? = nil,
@@ -119,16 +117,10 @@ public struct QuestionModel {
     public struct AnswerTextViewModel {
         public var viewModel: ViewModel
         public var textContainerInset: UIEdgeInsets?
-        public var inputView: UIView?
         
-        public init(
-            viewModel: ViewModel,
-            textContainerInset: UIEdgeInsets? = nil,
-            inputView: UIView? = nil
-        ) {
+        public init(viewModel: ViewModel, textContainerInset: UIEdgeInsets? = nil) {
             self.viewModel = viewModel
             self.textContainerInset = textContainerInset
-            self.inputView = inputView
         }
     }
     
