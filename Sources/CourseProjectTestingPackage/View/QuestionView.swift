@@ -10,7 +10,7 @@ import UIKit
 public final class QuestionView : UIView {
     public var userAnswers : [String] = []
     
-    private var answer = UITextView()
+    public var answer = UITextView()
     private var question = UIView()
     private var button = UIButton(type: .system)
     
