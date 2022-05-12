@@ -91,6 +91,7 @@ public final class QuestionView : UIView {
     }
     
     private func configureAnswerView(model: QuestionModel.AnswerTextViewModel) {
+        answer.text = ""
         answer.pinTop(to: question.bottomAnchor, model.viewModel.topIndent)
         
         configureView(model: model.viewModel, view: answer)
