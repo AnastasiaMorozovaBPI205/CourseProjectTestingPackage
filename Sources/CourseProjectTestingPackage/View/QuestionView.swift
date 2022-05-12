@@ -10,7 +10,7 @@ import UIKit
 public final class QuestionView : UIView {
     public var userAnswers : [String] = []
     
-    public var answer = UITextView()
+    private var answer = UITextView()
     private var question = UIView()
     private var button = UIButton(type: .system)
     
@@ -99,6 +99,8 @@ public final class QuestionView : UIView {
             guard let insets = model.textContainerInset else { return }
             answer.textContainerInset = insets
         }
+        
+        answer.inputView = model.inputView
     }
     
     private func configureButton(model: QuestionModel.NextButtonModel) {
