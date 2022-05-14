@@ -62,7 +62,7 @@ public final class QuestionView : UIView {
         
         let questionText = UILabel()
         questionText.text = model.question
-        questionText.setHeight(to: model.viewModel.height)
+        questionText.setHeight(to: model.viewModel.height/3)
         questionText.setWidth(to: model.viewModel.width)
         questionText.numberOfLines = model.numberOfLines
         questionText.textColor = model.textColor
@@ -70,7 +70,7 @@ public final class QuestionView : UIView {
         questionText.textAlignment = .center
         
         question.addSubview(questionText)
-        questionText.pinBottom(to: question.bottomAnchor, 20)
+        questionText.pinBottom(to: question.bottomAnchor, 10)
         
         configureView(model: model.viewModel, view: question)
         
@@ -85,7 +85,7 @@ public final class QuestionView : UIView {
             imageView.setWidth(to: width)
             
             question.addSubview(imageView)
-            imageView.pinTop(to: questionText.topAnchor, model.viewModel.topIndent)
+            imageView.pinBottom(to: questionText.topAnchor, model.viewModel.topIndent)
             imageView.pinLeft(to: question.leadingAnchor, model.viewModel.width / 2 - width / 2)
         }
     }
